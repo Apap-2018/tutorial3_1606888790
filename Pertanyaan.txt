@@ -1,0 +1,34 @@
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+Pertanyaan 1​: apakah hasilnya? Jika error, tuliskan penjelasan Anda.
+	Tidak error, Data berhasil ditambahkan
+
+
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono
+Pertanyaan 2: ​apakah hasilnya? Jika error, tuliskan penjelasan Anda.
+	Terdapat error, type=Bad Request, 
+	ini terjadi karena kita tidak menambahkan parameter 'flyHour'.
+	Di controller param 'flyHour' dibuat required = true
+	
+jalankan program dan buka
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 3​: apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+	Ya, data pilot muncul di halaman, berurutan dari id, licenseNumber, name, flyHour
+	
+Coba matikan program dan jalankan kembali serta buka
+localhost:8080/pilot/view?licenseNumber=1234
+Pertanyaan 4​: apakah data Pilot tersebut muncul? Jika tidak, mengapa?
+	Tidak, terdapat error, karena ketika program dimatikan arraylist yg menampung data pilot ke reset
+	sehingga ketika kita jalankan program dan langsung search, archivenya kosong
+	
+Jalankan program dan buka
+localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
+localhost:8080/pilot/viewall
+Pertanyaan 5​: apakah data Pilot tersebut muncul?
+	Ya, data pilot muncul di halaman
+		
+Coba tambahkan data Pilot lainnya dengan data yang berbeda, lalu buka
+localhost:8080/pilot/viewall
+Pertanyaan 6​: Apakah semua data Pilot muncul?
+	Semua data pilot muncul, tetapi dengan layout yang sekarang sedikit susah
+	untuk membedakan data dari pilot yang satu dan yang lain
