@@ -72,4 +72,17 @@ public class PilotController {
             return "error";
         }
 	}
+    
+    @RequestMapping("/pilot/delete/id/{id}")
+   	public String deletePath(@PathVariable String id, Model model) {
+           boolean archive = pilotService.deletePilot(id);
+           if (archive) {
+               model.addAttribute("id", id );
+               return "delete-pilot";
+           }
+           String message = "Pilot dengan Id "+id+" tidak ditemukan, penghapusan data dibatalkan";
+           model.addAttribute("errorMessage",message);
+           return "error";
+           
+   	}
 }

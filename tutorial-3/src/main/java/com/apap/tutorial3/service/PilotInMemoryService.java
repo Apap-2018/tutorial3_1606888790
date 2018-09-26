@@ -49,5 +49,22 @@ public class PilotInMemoryService implements PilotService {
 			pilotUpdated.setFlyHour(flyHour);
 		return pilotUpdated;
 	}
+
+	@Override
+	public boolean deletePilot(String id) {
+		if(!archivePilot.isEmpty()) {
+			for(int i = 0; i < archivePilot.size(); i++) {
+				if(archivePilot.get(i).getId().equalsIgnoreCase(id)) {
+					archivePilot.remove(i); 
+					return true;
+				}
+					
+		
+			}
+		}
+		
+		
+		return false;
+	}
 	
 }
