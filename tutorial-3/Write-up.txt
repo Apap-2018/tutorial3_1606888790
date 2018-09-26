@@ -1,3 +1,7 @@
+Fany Azka Hidayatulloh
+1606888790
+
+
 localhost:8080/pilot/add?id=1&licenseNumber=1234&name=Jono&flyHour=20
 Pertanyaan 1​: apakah hasilnya? Jika error, tuliskan penjelasan Anda.
 	Tidak error, Data berhasil ditambahkan
