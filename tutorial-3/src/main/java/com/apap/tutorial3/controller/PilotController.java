@@ -32,6 +32,7 @@ public class PilotController {
 		PilotModel archive = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
 		
 		model.addAttribute("pilot", archive);
+		model.addAttribute("title","View Detail");
 		return "view-pilot";
 	}
 
@@ -48,6 +49,7 @@ public class PilotController {
         PilotModel archieve = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
         if (archieve!=null) {
             model.addAttribute("pilot", archieve);
+            model.addAttribute("title","View Detail");
             return "view-pilot";
         }else {
             String message = "Pilot dengan License Number "+licenseNumber+" tidak ditemukan";
@@ -56,4 +58,18 @@ public class PilotController {
         }
 	}
 	
+    @RequestMapping("/pilot/update/license-number/{licenseNumber}/fly-hour/{flyHour}")
+	public String updatePath(@PathVariable String licenseNumber, @PathVariable String flyHour, Model model) {
+        PilotModel archive = pilotService.updatePilotFH(licenseNumber, Integer.parseInt(flyHour));
+        if (archive!=null) {
+        	model.addAttribute("isUpdate", true);
+            model.addAttribute("pilot", archive);
+            model.addAttribute("title","Update Pilot");
+            return "view-pilot";
+        }else {
+            String message = "Pilot dengan License Number "+licenseNumber+" tidak ditemukan, update data dibatalkan";
+            model.addAttribute("errorMessage",message);
+            return "error";
+        }
+	}
 }

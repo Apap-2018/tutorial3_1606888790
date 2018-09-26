@@ -32,7 +32,7 @@ public class PilotInMemoryService implements PilotService {
 		
 		if(!archivePilot.isEmpty()) {
 			for(int i = 0; i < archivePilot.size(); i++) {
-				if(archivePilot.get(i).getLicenseNumber().equals(licenseNumber))
+				if(archivePilot.get(i).getLicenseNumber().equalsIgnoreCase(licenseNumber))
 					return archivePilot.get(i);
 		
 			}
@@ -40,6 +40,14 @@ public class PilotInMemoryService implements PilotService {
 		
 		
 		return null;
+	}
+
+	@Override
+	public PilotModel updatePilotFH(String licenseNumber, Integer flyHour) {
+		PilotModel pilotUpdated = getPilotDetailByLicenseNumber(licenseNumber);
+		if(pilotUpdated!=null)
+			pilotUpdated.setFlyHour(flyHour);
+		return pilotUpdated;
 	}
 	
 }
